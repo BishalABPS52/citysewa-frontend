@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Custom theme variables */
+    --custom-background: #f2f8fc;
+    --custom-accent: #ff3131;
+    
+    /* CityServe Theme Variables */
+    --background: 202 40% 98%;
+    --foreground: 200 8% 10%;
+    --card: 202 20% 99%;
+    --card-foreground: 200 8% 10%;
+    --popover: 202 20% 99%;
+    --popover-foreground: 200 8% 10%;
+    --primary: 0 80% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 202 20% 94%;
+    --secondary-foreground: 200 8% 10%;
+    --muted: 202 20% 94%;
+    --muted-foreground: 200 5% 40%;
+    --accent: 0 80% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 202 20% 90%;
+    --input: 202 20% 90%;
+    --ring: 0 80% 60%;
+    --radius: 0.75rem;
+
+    /* Custom CityServe Colors */
+    --cityserve-pink: 0 100% 60%;
+    --cityserve-orange: 25 95% 53%;
+    --cityserve-teal: 173 80% 40%;
+    --cityserve-yellow: 48 100% 67%;
+    --cityserve-green: 142 76% 36%;
+
+    --chart-1: 0 100% 60%;
+    --chart-2: 25 95% 53%;
+    --chart-3: 173 80% 40%;
+    --chart-4: 48 100% 67%;
+    --chart-5: 142 76% 36%;
+  }
+
+  .dark {
+    /* Custom theme variables */
+    --custom-background: #000302;
+    --custom-accent: #ff3131;
+    
+    /* CityServe Dark Theme */
+    --background: 180 5% 1%;
+    --foreground: 0 0% 98%;
+    --card: 180 3% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 180 3% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 100% 60%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 180 3% 8%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 180 3% 8%;
+    --muted-foreground: 180 5% 64%;
+    --accent: 0 100% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 3% 10%;
+    --input: 180 3% 10%;
+    --ring: 0 100% 60%;
+
+    --cityserve-pink: 0 100% 60%;
+    --cityserve-orange: 25 95% 53%;
+    --cityserve-teal: 173 80% 40%;
+    --cityserve-yellow: 48 100% 67%;
+    --cityserve-green: 142 76% 36%;
+
+    --chart-1: 0 100% 60%;
+    --chart-2: 25 95% 53%;
+    --chart-3: 173 80% 40%;
+    --chart-4: 48 100% 67%;
+    --chart-5: 142 76% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    height: 100%;
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-geist-sans, sans-serif);
+    position: relative;
+    min-height: 100%;
+  }
+  
+  /* Background image with theme-adaptive styling */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/bg.png');
+    background-size: 120% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.035; /* Very subtle low opacity for light mode */
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  /* Dark theme specific adjustment */
+  .dark body::before {
+    opacity: 0.065; /* Slightly higher opacity for better visibility in dark mode */
+    filter: brightness(0.9) contrast(1.1) invert(0.8); /* Better adapt image to dark theme */
+  }
+}
+
+@layer utilities {
+  .text-cityserve-pink {
+    color: hsl(var(--cityserve-pink));
+  }
+  .bg-cityserve-pink {
+    background-color: hsl(var(--cityserve-pink));
+  }
+  .text-cityserve-orange {
+    color: hsl(var(--cityserve-orange));
+  }
+  .bg-cityserve-orange {
+    background-color: hsl(var(--cityserve-orange));
+  }
+  .text-cityserve-teal {
+    color: hsl(var(--cityserve-teal));
+  }
+  .bg-cityserve-teal {
+    background-color: hsl(var(--cityserve-teal));
+  }
+  .text-cityserve-yellow {
+    color: hsl(var(--cityserve-yellow));
+  }
+  .bg-cityserve-yellow {
+    background-color: hsl(var(--cityserve-yellow));
+  }
+  .text-cityserve-green {
+    color: hsl(var(--cityserve-green));
+  }
+  .bg-cityserve-green {
+    background-color: hsl(var(--cityserve-green));
+  }
+
+  /* Custom theme utility classes */
+  .bg-custom {
+    background-color: var(--custom-background);
+  }
+  .text-accent-custom {
+    color: var(--custom-accent);
+  }
+  .bg-accent-custom {
+    background-color: var(--custom-accent);
+  }
+  .border-accent-custom {
+    border-color: var(--custom-accent);
+  }
+  
+  .gradient-pink-orange {
+    background: linear-gradient(135deg, hsl(var(--cityserve-pink)), hsl(var(--cityserve-orange)));
+  }
+
+  .gradient-teal-green {
+    background: linear-gradient(135deg, hsl(var(--cityserve-teal)), hsl(var(--cityserve-green)));
+  }
+}

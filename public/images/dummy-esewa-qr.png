@@ -1,0 +1,6 @@
+<!-- SVG QR Code placeholder for eSewa -->
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#ffffff"/>
+  <rect x="20" y="20" width="160" height="160" fill="#00b348"/>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">eSewa QR Code</text>
+</svg>
